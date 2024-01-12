@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+    xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    Shell.FlyoutBehavior="Disabled"
+    Shell.BackgroundColor="{StaticResource BackgroundColor}"
+    Shell.TitleColor="{StaticResource LabelTextColor}"
+    Visual="Material"
+    x:Class="UrbanStyleApp.AccountMainPages.AccountHome">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="round_perm_identity_white_48.png" />
+    </ContentPage.ToolbarItems>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+     <maps:Map x:Name="UrbanMap"
+               IsShowingUser="True"
+               Visual="Material"
+               Grid.RowSpan="4"
+               Grid.Row="0"/>
+     
+     <StackLayout Orientation="Vertical"
+                  HorizontalOptions="FillAndExpand"
+                  VerticalOptions="FillAndExpand"
+                  Grid.Row="0"
+                  Padding="10"
+                  Opacity="0.8"
+                  BackgroundColor="{StaticResource BackgroundColor}">
+
+            <StackLayout Orientation="Horizontal">
+
+            <Label Text="Hi, "
+                    VerticalOptions="Start"
+                    HorizontalOptions="Start"
+                    FontFamily="{StaticResource MontserratRegular}"
+                    TextColor="{StaticResource LabelTextColor}"
+                    FontSize="Small"/>
+
+                <Label Text="Benjamin "
+                    VerticalOptions="Start"
+                    HorizontalOptions="Start"
+                    FontFamily="{StaticResource MontserratRegular}"
+                    TextColor="{StaticResource LabelTextColor}"
+                    FontSize="Small"/>
+
+                </StackLayout>
+
+            <Label Text="Welcome again!"
+                    VerticalOptions="Start"
+                    HorizontalOptions="StartAndExpand"
+                    TextType="Text"
+                    Visual="Material"
+                    FontFamily="{StaticResource MontserratRegular}"
+                    TextColor="{StaticResource LabelTextColor}"
+                    FontSize="Title"
+                    FontAttributes="Bold"/>
+
+         <StackLayout Orientation="Horizontal"
+                      HorizontalOptions="CenterAndExpand"
+                      Opacity="1">
+             <Grid>
+                 <Grid.ColumnDefinitions>
+                     <ColumnDefinition Width="*"/>
+                     <ColumnDefinition Width="*"/>
+                 </Grid.ColumnDefinitions>
+            
+              <Button Text="REQUEST SERVICE"
+                          TextTransform="None"
+                          FontSize="Medium"
+                          Grid.Column="0"
+                          Padding="10, 0,10,0 "
+                          FontFamily="{StaticResource MontserratRegular}"
+                          VerticalOptions="StartAndExpand"
+                          HorizontalOptions="StartAndExpand"
+                          TextColor="{StaticResource ButtontTextColor}"
+                          BackgroundColor="{StaticResource ButtonBackGround}"
+                          FontAttributes="Bold"
+                          Clicked="requestService"/>
+
+              <Button Text="OFFERED SERVICE"
+                          TextTransform="None"
+                          FontSize="Medium"
+                          Grid.Column="1"
+                          Padding="10, 0,10,0 "
+                          FontFamily="{StaticResource MontserratRegular}"
+                          VerticalOptions="StartAndExpand"
+                          HorizontalOptions="StartAndExpand"
+                          TextColor="{StaticResource ButtontTextColor}"
+                          BackgroundColor="{StaticResource ButtonBackGround}"
+                          FontAttributes="Bold"
+                          Clicked="offeredService"/>
+                  </Grid>
+         </StackLayout>
+        </StackLayout>
+          
+       
+        </Grid>
+</ContentPage>

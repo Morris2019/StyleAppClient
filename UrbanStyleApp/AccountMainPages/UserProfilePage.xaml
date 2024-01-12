@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewMModel="clr-namespace:UrbanStyleApp.ViewModels"
+    xmlns:ffimage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:pancakeview="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    Shell.FlyoutBehavior="Disabled"
+    Title="Account"
+    Shell.BackgroundColor="{StaticResource BackgroundColor}"
+    Shell.TitleColor="{StaticResource LabelTextColor}"
+    x:Class="UrbanStyleApp.AccountMainPages.UserProfilePage">
+
+<ContentPage.BindingContext>
+        <viewMModel:UserProfilePageViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="baseline_exit_to_app_white_48.png" Clicked="logoutClicked" />
+    </ContentPage.ToolbarItems>
+
+   
+
+    <StackLayout Orientation="Vertical">
+        <StackLayout Orientation="Vertical" >
+           <pancakeview:PancakeView
+                            CornerRadius="10"
+                            Margin="15,20,0,0"
+                            Padding="2"
+                            BackgroundColor="{StaticResource BackgroundColor}">
+               <StackLayout Orientation="Horizontal">
+
+                       <ffimage:CachedImage Source="baseline_shopping_bag_black_48.png"
+                                            LoadingPlaceholder="LoaderImage"
+                                            ErrorPlaceholder="ErrorImage"
+                                            BitmapOptimizations="True"
+                                            CacheDuration="50"
+                                            RetryCount="3"
+                                            HeightRequest="50"
+                                            WidthRequest="50"
+                                            Grid.Column="0"
+                                            RetryDelay="600"
+                                            BackgroundColor="{StaticResource BackgroundColor}"
+                                            Aspect="AspectFit"/>
+
+                        <Label Text="My Orders"
+                                FontSize="Subtitle"
+                                FontAttributes="Bold"
+                                Margin="20,0,0,0"
+                                HorizontalOptions="StartAndExpand"
+                                VerticalTextAlignment="Center"
+                                LineBreakMode="NoWrap"
+                                FontFamily="{StaticResource MontserratBold}"
+                                TextColor="{StaticResource LabelTextColor}"/>
+                    
+                      </StackLayout>
+                
+             </pancakeview:PancakeView>
+            <BoxView BackgroundColor="LightSlateGray"
+                     HeightRequest="1"
+                     Margin="10,0,10,0"/>
+            </StackLayout>
+
+        <StackLayout Orientation="Vertical" >
+         <pancakeview:PancakeView
+                            CornerRadius="10"
+                            Margin="15,0,0,0"
+                            Padding="2"
+                            BackgroundColor="{StaticResource BackgroundColor}">
+               <StackLayout Orientation="Horizontal">
+
+                       <ffimage:CachedImage Source="baseline_person_black_48.png"
+                                            LoadingPlaceholder="LoaderImage"
+                                            ErrorPlaceholder="ErrorImage"
+                                            CacheDuration="50"
+                                            RetryCount="3"
+                                            HeightRequest="50"
+                                            WidthRequest="50"
+                                            Grid.Column="0"
+                                            RetryDelay="600"
+                                            BackgroundColor="{StaticResource BackgroundColor}"
+                                            Aspect="AspectFit"/>
+
+                        <Label Text="Profile"
+                                FontSize="Subtitle"
+                                FontAttributes="Bold"
+                                Margin="20,0,0,0"
+                                HorizontalOptions="StartAndExpand"
+                                VerticalTextAlignment="Center"
+                                LineBreakMode="NoWrap"
+                                FontFamily="{StaticResource MontserratBold}"
+                                TextColor="{StaticResource LabelTextColor}"/>
+
+                      </StackLayout>
+             </pancakeview:PancakeView>
+            <BoxView BackgroundColor="LightSlateGray"
+                     HeightRequest="1"
+                     Margin="10,0,10,0"/>
+            </StackLayout>
+
+        <StackLayout Orientation="Vertical">
+        <pancakeview:PancakeView
+                            CornerRadius="10"
+                            Margin="15,0,0,0"
+                            Padding="2"
+                            BackgroundColor="{StaticResource BackgroundColor}">
+               <StackLayout Orientation="Horizontal">
+
+                       <ffimage:CachedImage Source="baseline_favorite_border_black_48.png"
+                                            LoadingPlaceholder="LoaderImage"
+                                            ErrorPlaceholder="ErrorImage"
+                                            CacheDuration="50"
+                                            RetryCount="3"
+                                            HeightRequest="50"
+                                            WidthRequest="50"
+                                            Grid.Column="0"
+                                            RetryDelay="600"
+                                            BackgroundColor="{StaticResource BackgroundColor}"
+                                            Aspect="AspectFit"/>
+
+                        <Label Text="Payment Methods "
+                                FontSize="Subtitle"
+                                FontAttributes="Bold"
+                                Margin="20,0,0,0"
+                                HorizontalOptions="StartAndExpand"
+                                VerticalTextAlignment="Center"
+                                LineBreakMode="NoWrap"
+                                FontFamily="{StaticResource MontserratBold}"
+                                TextColor="{StaticResource LabelTextColor}"/>
+
+                      </StackLayout>
+             </pancakeview:PancakeView>
+            <BoxView BackgroundColor="LightSlateGray"
+                     HeightRequest="1"
+                     Margin="10,0,10,0"/>
+            </StackLayout>
+
+        <StackLayout Orientation="Vertical" >
+         <pancakeview:PancakeView
+                            CornerRadius="10"
+                            Margin="15,0,0,0"
+                            Padding="2"
+                            BackgroundColor="{StaticResource BackgroundColor}">
+               <StackLayout Orientation="Horizontal">
+
+                       <ffimage:CachedImage Source="baseline_verified_user_black_48.png"
+                                            LoadingPlaceholder="LoaderImage"
+                                            ErrorPlaceholder="ErrorImage"
+                                            CacheDuration="50"
+                                            RetryCount="3"
+                                            HeightRequest="50"
+                                            WidthRequest="50"
+                                            Grid.Column="0"
+                                            RetryDelay="600"
+                                            BackgroundColor="{StaticResource BackgroundColor}"
+                                            Aspect="AspectFit"/>
+
+                        <Label Text="Help"
+                                FontSize="Subtitle"
+                                FontAttributes="Bold"
+                                Margin="20,0,0,0"
+                                HorizontalOptions="StartAndExpand"
+                                VerticalTextAlignment="Center"
+                                LineBreakMode="NoWrap"
+                                FontFamily="{StaticResource MontserratBold}"
+                                TextColor="{StaticResource LabelTextColor}"/>
+
+                      </StackLayout>
+             </pancakeview:PancakeView>
+            <BoxView BackgroundColor="LightSlateGray"
+                     HeightRequest="1"
+                     Margin="10,0,10,0"/>
+            </StackLayout>
+
+        <StackLayout Orientation="Vertical" >
+         <pancakeview:PancakeView
+                            CornerRadius="10"
+                            Margin="15,0,0,0"
+                            Padding="2"
+                            BackgroundColor="{StaticResource BackgroundColor}">
+               <StackLayout Orientation="Horizontal">
+
+                       <ffimage:CachedImage Source="baseline_error_black_48.png"
+                                            LoadingPlaceholder="LoaderImage"
+                                            ErrorPlaceholder="ErrorImage"
+                                            CacheDuration="50"
+                                            RetryCount="3"
+                                            HeightRequest="50"
+                                            WidthRequest="50"
+                                            Grid.Column="0"
+                                            RetryDelay="600"
+                                            BackgroundColor="{StaticResource BackgroundColor}"
+                                            Aspect="AspectFit"/>
+
+                        <Label Text="About "
+                                FontSize="Subtitle"
+                                FontAttributes="Bold"
+                                Margin="20,0,0,0"
+                                HorizontalOptions="StartAndExpand"
+                                VerticalTextAlignment="Center"
+                                LineBreakMode="NoWrap"
+                                FontFamily="{StaticResource MontserratBold}"
+                                TextColor="{StaticResource LabelTextColor}"/>
+
+                      </StackLayout>
+             </pancakeview:PancakeView>
+
+         <BoxView BackgroundColor="LightSlateGray"
+                     HeightRequest="1"
+                     Margin="10,0,10,0"/>
+            </StackLayout>
+     </StackLayout>       
+</ContentPage>

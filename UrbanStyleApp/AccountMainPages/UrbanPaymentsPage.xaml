@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<popups:Popup
+        xmlns="http://xamarin.com/schemas/2014/forms"
+        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+        BackgroundColor="{StaticResource BackgroundColor}"
+        Shell.BackgroundColor="{StaticResource BackgroundColor}"
+        xmlns:popups="http://xamarin.com/schemas/2020/toolkit"
+        xmlns:pancakeview="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+        xmlns:ffimage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+        Size="350,500"
+        HorizontalOptions="CenterAndExpand"
+        VerticalOptions="EndAndExpand"
+        Shell.FlyoutBehavior="Disabled"
+        Shell.TabBarIsVisible="False"
+        x:Class="UrbanStyleApp.AccountMainPages.UrbanPaymentsPage">
+
+    <StackLayout Orientation="Vertical">
+                        
+                        
+        <StackLayout Orientation="Horizontal" Padding="20">
+            <Label Text="Payment Methods "
+                        VerticalOptions="CenterAndExpand"
+                        HorizontalOptions="StartAndExpand"
+                        FontFamily="{StaticResource MontserratRegular}"
+                        TextColor="{StaticResource LabelTextColor}"
+                        FontSize="Title"
+                        FontAttributes="Bold"/>
+
+             <ffimage:CachedImage Source="baseline_close_black_48.png"
+                                   Aspect="AspectFill"
+                                   LoadingPlaceholder="LoaderImage"
+                                    ErrorPlaceholder="ErrorImage"
+                                    CacheDuration="50"
+                                    RetryCount="3"
+                                    RetryDelay="600"
+                                    BackgroundColor="{StaticResource BackgroundColor}"
+                                    HeightRequest="40"
+                                    WidthRequest="40"
+                                   HorizontalOptions="CenterAndExpand"
+                                   VerticalOptions="CenterAndExpand"/>
+        </StackLayout>
+           <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+              <pancakeview:PancakeView
+                                Grid.Row="0"
+                                Margin="0"
+                                Padding="2"
+                                Border="{pancakeview:BorderMarkup Color=#f7f8f9, Thickness='1'}"
+                                BackgroundColor="{StaticResource FrameBackGroundColor}">
+                   <StackLayout Orientation="Horizontal"
+                                Padding="10">
+                              <ffimage:CachedImage  Source="visacard.png"
+                                                    LoadingPlaceholder="LoaderImage"
+                                                    ErrorPlaceholder="ErrorImage"
+                                                    CacheDuration="50"
+                                                    RetryCount="3"
+                                                    RetryDelay="600"
+                                                    BackgroundColor="{StaticResource BackgroundColor}"
+                                                    HeightRequest="60"
+                                                    WidthRequest="60"
+                                                    Aspect="AspectFit"/>
+                               <Label Text="Credit/Debit Card"
+                                    VerticalOptions="CenterAndExpand"
+                                    HorizontalOptions="StartAndExpand"
+                                    FontFamily="{StaticResource MontserratRegular}"
+                                    TextColor="{StaticResource LabelTextColor}"
+                                    FontSize="Subtitle"
+                                    FontAttributes="Bold"/>
+                       </StackLayout>
+              </pancakeview:PancakeView>
+
+               <pancakeview:PancakeView
+                                Grid.Row="1"
+                                Margin="0"
+                                Padding="2"
+                                Border="{pancakeview:BorderMarkup Color=#f7f8f9, Thickness='1'}"
+                                BackgroundColor="{StaticResource FrameBackGroundColor}">
+                   <StackLayout Orientation="Horizontal"
+                                Padding="10">
+                              <ffimage:CachedImage  Source="tigocash.png"
+                                                    LoadingPlaceholder="LoaderImage"
+                                                    ErrorPlaceholder="ErrorImage"
+                                                    CacheDuration="50"
+                                                    RetryCount="3"
+                                                    RetryDelay="600"
+                                                    BackgroundColor="{StaticResource BackgroundColor}"
+                                                    HeightRequest="60"
+                                                    WidthRequest="60"
+                                                    Aspect="AspectFit"/>
+                               <Label Text="Tigo Cash"
+                                    VerticalOptions="CenterAndExpand"
+                                    HorizontalOptions="StartAndExpand"
+                                    FontFamily="{StaticResource MontserratRegular}"
+                                    TextColor="{StaticResource LabelTextColor}"
+                                    FontSize="Subtitle"
+                                    FontAttributes="Bold"/>
+                       </StackLayout>
+              </pancakeview:PancakeView>
+
+               <pancakeview:PancakeView
+                                Grid.Row="2"
+                                Margin="0"
+                                Padding="2"
+                                Border="{pancakeview:BorderMarkup Color=#f7f8f9, Thickness='1'}"
+                                BackgroundColor="{StaticResource FrameBackGroundColor}">
+                   <StackLayout Orientation="Horizontal"
+                                Padding="10">
+                              <ffimage:CachedImage  Source="MTNMobilemoney.png"
+                                                    LoadingPlaceholder="LoaderImage"
+                                                    ErrorPlaceholder="ErrorImage"
+                                                    CacheDuration="50"
+                                                    RetryCount="3"
+                                                    RetryDelay="600"
+                                                    BackgroundColor="{StaticResource BackgroundColor}"
+                                                    HeightRequest="60"
+                                                    WidthRequest="60"
+                                                    Aspect="AspectFit"/>
+                               <Label Text="MTN Mobbile Money"
+                                    VerticalOptions="CenterAndExpand"
+                                    HorizontalOptions="StartAndExpand"
+                                    FontFamily="{StaticResource MontserratRegular}"
+                                    TextColor="{StaticResource LabelTextColor}"
+                                    FontSize="Subtitle"
+                                    FontAttributes="Bold"/>
+                       </StackLayout>
+              </pancakeview:PancakeView>
+
+                <pancakeview:PancakeView
+                                Grid.Row="3"
+                                Margin="0"
+                                Padding="2"
+                                Border="{pancakeview:BorderMarkup Color=#f7f8f9, Thickness='1'}"
+                                BackgroundColor="{StaticResource FrameBackGroundColor}">
+
+                   <StackLayout Orientation="Horizontal"
+                                Padding="10">
+                              <ffimage:CachedImage
+                                            Source="vodafonecash.png"
+                                            LoadingPlaceholder="LoaderImage"
+                                            ErrorPlaceholder="ErrorImage"
+                                            CacheDuration="50"
+                                            RetryCount="3"
+                                            RetryDelay="600"
+                                            BackgroundColor="{StaticResource BackgroundColor}"
+                                            HeightRequest="60"
+                                            WidthRequest="60"
+                                            Aspect="AspectFit"/>
+
+                               <Label Text="Vodafone Cash"
+                                    VerticalOptions="CenterAndExpand"
+                                    HorizontalOptions="StartAndExpand"
+                                    FontFamily="{StaticResource MontserratRegular}"
+                                    TextColor="{StaticResource LabelTextColor}"
+                                    FontSize="Subtitle"
+                                    FontAttributes="Bold"/>
+                       </StackLayout>
+              </pancakeview:PancakeView>
+           </Grid>
+    </StackLayout>
+
+
+</popups:Popup>

@@ -1,0 +1,87 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2083" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
+    <PackageReference Include="Xam.Plugins.Forms.ImageCircle" Version="3.0.0.5" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Xamarin.Forms.Maps" Version="5.0.0.2083" />
+    <PackageReference Include="Xamarin.Forms.PancakeView" Version="2.3.0.759" />
+    <PackageReference Include="TcxTools.NetStandard" Version="1.0.0" />
+    <PackageReference Include="Refit" Version="6.0.94" />
+    <PackageReference Include="Sharpnado.Forms.HorizontalListView" Version="1.8.2" />
+    <PackageReference Include="Xamarin.Forms.Visual.Material" Version="5.0.0.2083" />
+    <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.CommunityToolkit" Version="1.2.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Authentications\" />
+    <None Remove="AccountMainPages\" />
+    <None Remove="DataModel\" />
+    <None Remove="DataServices\" />
+    <None Remove="Xam.Plugins.Forms.ImageCircle" />
+    <None Remove="Newtonsoft.Json" />
+    <None Remove="Xamarin.Forms.GoogleMaps" />
+    <None Remove="Xamarin.Forms.Maps" />
+    <None Remove="Microsoft.Net.Http" />
+    <None Remove="Syncfusion.Xamarin.SfCalendar" />
+    <None Remove="Xamarin.Forms.PancakeView" />
+    <None Remove="Resources\" />
+    <None Remove="Resources\route.tcx" />
+    <None Remove="Resources\rooute1.tcx" />
+    <None Remove="System.Runtime.Serialization.Primitives" />
+    <None Remove="TcxTools" />
+    <None Remove="TcxTools.NetStandard" />
+    <None Remove="Refit" />
+    <None Remove="ViewModels\" />
+    <None Remove="Model\" />
+    <None Remove="Syncfusion.Xamarin.SfPicker" />
+    <None Remove="Sharpnado.Forms.HorizontalListView" />
+    <None Remove="Converters\" />
+    <None Remove="Xamarin.Forms.Visual.Material" />
+    <None Remove="EmbeddedFont\" />
+    <None Remove="Xamarin.FFImageLoading.Forms" />
+    <None Remove="Xamarin.CommunityToolkit" />
+    <None Remove="EmbeddedFont\materialicon.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Authentications\" />
+    <Folder Include="AccountMainPages\" />
+    <Folder Include="DataModel\" />
+    <Folder Include="DataServices\" />
+    <Folder Include="Resources\" />
+    <Folder Include="ViewModels\" />
+    <Folder Include="Model\" />
+    <Folder Include="Converters\" />
+    <Folder Include="EmbeddedFont\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\route.tcx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>route.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\rooute1.tcx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>rooute1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmbeddedFont\materialicon.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Resources\route.Designer.cs">
+      <DependentUpon>route.tcx</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\rooute1.Designer.cs">
+      <DependentUpon>rooute1.tcx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+</Project>

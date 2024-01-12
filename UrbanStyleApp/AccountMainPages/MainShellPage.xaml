@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:UrbanStyleApp.AccountMainPages"
+    FlyoutHeaderBehavior="CollapseOnScroll"
+    Shell.NavBarHasShadow="True"
+    x:Class="UrbanStyleApp.AccountMainPages.MainShellPage">
+    
+   <Shell.Resources>
+       <ResourceDictionary>
+            
+           <Style x:Key="BaseStyle" TargetType="Element">
+               <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource BackgroundColor}"/>
+               <Setter Property="Shell.TabBarForegroundColor" Value="{StaticResource LabelTextColor}"/>
+               <Setter Property="Shell.TabBarUnselectedColor" Value="{StaticResource NavItemsColor}"/>
+               <Setter Property="Shell.TabBarTitleColor" Value="{StaticResource NavItemSelected}"/>
+               <Setter Property="Shell.TitleColor" Value="{StaticResource NavItemSelected}"/>
+               <Setter Property="Shell.UnselectedColor" Value="{StaticResource LabelTextColor}"/>
+               <Setter Property="Shell.ForegroundColor" Value="{StaticResource NavItemSelected}"/>
+               <Setter Property="Shell.UnselectedColor" Value="{StaticResource NavItemsColor}"/>
+               
+              
+           </Style>
+           <Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}"/>
+
+           <Style x:Key="DomesticShell" TargetType="Element"
+                  
+                  BasedOn="{StaticResource BaseStyle}"/>
+
+
+        </ResourceDictionary>
+   </Shell.Resources>
+
+    <FlyoutItem>
+        <Tab Icon="round_home_white_48.png">
+            <ShellContent Title="Profile" Route="AccountHome" ContentTemplate="{DataTemplate views:AccountHome}"/>
+        </Tab>
+
+         <Tab Icon="round_shopping_bag_white_48.png">
+
+            <ShellContent Route="UrbanStoreHair"
+                          Style="{StaticResource DomesticShell}"
+                          Title="Hair"
+                          ContentTemplate="{DataTemplate views:UrbanStoreHair}"/>
+            <ShellContent Route="UrbanStoreBody"
+                          Style="{StaticResource DomesticShell}"
+                          Title="Skin"
+                          ContentTemplate="{DataTemplate views:UrbanStoreBody}"/>
+             
+            <ShellContent Route="UrbanStoreNails"
+                          Style="{StaticResource DomesticShell}"
+                          Title="Nails"
+                          ContentTemplate="{DataTemplate views:UrbanStoreNails}"/>
+        </Tab>
+         <Tab Icon="round_notifications_none_white_48.png">
+            <ShellContent Title="Profile" Route="UrbanNotify" ContentTemplate="{DataTemplate views:UrbanNotify}"/>
+        </Tab>
+         <Tab Icon="round_perm_identity_white_48.png">
+            <ShellContent Title="Profile" Route="UserProfilePage" ContentTemplate="{DataTemplate views:UserProfilePage}"/>
+        </Tab>
+        
+    </FlyoutItem>
+  
+
+</Shell>

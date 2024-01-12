@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="UrbanStyleApp.AccountMainPages.UrbanCartPage"
+    BackgroundColor="{StaticResource BackgroundColor}"
+    Shell.BackgroundColor="{StaticResource BackgroundColor}"
+    Shell.FlyoutBehavior="Disabled"
+    Shell.TabBarIsVisible="False"
+    Title="Cart">
+
+  <StackLayout Orientation="Vertical">
+       <Grid VerticalOptions="FillAndExpand" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+             <CollectionView x:Name="UranActivity"
+                     ItemsSource="{Binding UrbanUsersModel}"
+                     Opacity="1"  
+                     Grid.Row="0"
+                     Grid.RowSpan="3"
+                     SelectionMode="Single">
+             <CollectionView.ItemsLayout>
+       <GridItemsLayout Orientation="Vertical"/>
+    </CollectionView.ItemsLayout>
+
+        <CollectionView.ItemTemplate>
+           
+            <DataTemplate>
+
+                <Frame  HasShadow="True"
+                        BorderColor="#ECECEC"
+                        CornerRadius="10"
+                        HeightRequest="80"
+                        Margin="20"
+                        BackgroundColor="{StaticResource FrameBackGroundColor}">
+                    
+                           <Grid >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                 <ColumnDefinition Width="*"/>
+                                 <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                             <Image Source="storeitem2.png"
+                                    Aspect="Fill"
+                                    Grid.Row="0"
+                                    Grid.RowSpan="3"
+                                    Grid.Column="0"
+                                    BackgroundColor="{StaticResource BackgroundColor}"/>
+
+                              
+
+                        <Label Text="{Binding firstName}"
+                                FontSize="Subtitle"
+                                MaxLines="2"
+                                Margin="3"
+                                Grid.Column="1"
+                                Grid.ColumnSpan="2"
+                                Grid.Row="1"
+                                HorizontalOptions="StartAndExpand"
+                                LineBreakMode="NoWrap"
+                                TextColor="{StaticResource LabelTextColor}"/>
+
+                    <StackLayout Orientation="Horizontal"
+                                Grid.Column="1"
+                                Grid.ColumnSpan="2"
+                                Grid.Row="2">
+
+                            <Label Text="1 piece"
+                                    FontSize="Subtitle"
+                                    MaxLines="2"
+                                    HorizontalOptions="StartAndExpand"
+                                    LineBreakMode="NoWrap"
+                                    TextColor="{StaticResource LabelTextColor}"/>
+
+                             <Label Text="GHS 400.00"
+                                FontSize="Subtitle"
+                                MaxLines="2"
+                                HorizontalOptions="EndAndExpand"
+                                LineBreakMode="NoWrap"
+                                FontAttributes="Bold"
+                                TextColor="{StaticResource LabelTextColor}"/>
+                     </StackLayout>
+                   </Grid>
+                </Frame>
+                    
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+
+      <Frame HorizontalOptions="FillAndExpand"
+             VerticalOptions="EndAndExpand"
+             BackgroundColor="{StaticResource ButtonBackGround}"
+             Margin="10"
+             Grid.Row="2"
+             Padding="10,0,10,0">
+          <Frame.GestureRecognizers>
+              <TapGestureRecognizer Tapped="ItemPayment"></TapGestureRecognizer>
+          </Frame.GestureRecognizers>
+
+          <StackLayout Orientation="Horizontal">
+
+              <Label 
+                    Text="Proceed to checkout"
+                    TextColor="{StaticResource BackgroundColor}"
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="StartAndExpand"
+                    FontAttributes="Bold"
+                    FontSize="Large"/>
+
+               <Button Text="GHS 400.00"
+                        TextTransform="None"
+                        FontSize="Small"
+                        Margin="5"
+                        VerticalOptions="EndAndExpand"
+                        HorizontalOptions="EndAndExpand"
+                        TextColor="{StaticResource ButtontTextColor}"
+                        BackgroundColor="#9083DC"
+                        FontAttributes="Bold"/>
+              </StackLayout>
+          </Frame>
+           </Grid>
+  </StackLayout>
+
+</ContentPage>

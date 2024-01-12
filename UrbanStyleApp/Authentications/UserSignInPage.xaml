@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:image="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+    BackgroundColor="{StaticResource BackgroundColor}"
+    Shell.BackgroundColor="{StaticResource BackgroundColor}"
+    Shell.FlyoutBehavior="Disabled"
+    Shell.TabBarIsVisible="False"
+    x:Class="UrbanStyleApp.Authentications.UserSignInPage">
+
+     <ContentPage.Content>
+      <Grid VerticalOptions="FillAndExpand" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+             
+        <StackLayout Grid.Row="0"
+                     Orientation="Vertical"
+                     Padding="20"
+                     BackgroundColor="{StaticResource BackgroundColor}">
+
+            <Label Text="Log In"
+                    VerticalOptions="Start"
+                    HorizontalOptions="StartAndExpand"
+                    TextColor="{StaticResource LabelTextColor}"
+                    FontSize="Title"
+                    FontAttributes="Bold"/>
+
+            <Label Text="Enter your email and password"
+                    VerticalOptions="Start"
+                    HorizontalOptions="StartAndExpand"
+                    TextType="Text"
+                    TextColor="{StaticResource LabelTextColor}"
+                    FontSize="Small"  />
+
+        </StackLayout>
+
+
+        <StackLayout Orientation="Vertical" Grid.Row="1" Padding="20">
+
+             <Entry x:Name="UserEmail"
+                    Placeholder="Email"
+                    Keyboard="Email"
+                    IsTextPredictionEnabled="True"
+                    PlaceholderColor="{StaticResource EntryPlaceTextColor}"
+                    ClearButtonVisibility="WhileEditing"
+                    TextColor="{StaticResource EntryTextColor}"
+                    Margin="0,0,0,20"
+                    IsPassword="False"/>
+          
+             <Entry x:Name="UserPassword"
+                    Placeholder="Password"
+                    Keyboard="Text"
+                    IsTextPredictionEnabled="False"
+                    PlaceholderColor="{StaticResource EntryPlaceTextColor}"
+                    ClearButtonVisibility="WhileEditing"
+                    TextColor="{StaticResource EntryTextColor}"
+                    IsPassword="True" />
+
+             <Label Text="Forget Password?"
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="EndAndExpand"
+                    TextColor="{StaticResource LabelTextColor}"
+                    FontSize="Small"
+                    Margin="0,10,0,20">
+                 <Label.GestureRecognizers>
+                     <TapGestureRecognizer Tapped="UserPasswordResetTap"/>
+                 </Label.GestureRecognizers>
+             </Label>
+
+             <Button Text="Login"
+                          TextTransform="None"
+                          FontSize="20"
+                          Padding="70, 0,70,0 "
+                          VerticalOptions="CenterAndExpand"
+                          HorizontalOptions="CenterAndExpand"
+                          TextColor="{StaticResource ButtontTextColor}"
+                          BackgroundColor="{StaticResource ButtonBackGround}"
+                          FontAttributes="Bold"
+                          Clicked="UserLoginButton"/>
+            </StackLayout>
+ 
+             <StackLayout Grid.Row="2"
+                          Orientation="Horizontal"
+                          HorizontalOptions="CenterAndExpand">
+
+                 <Label 
+                    Text=" Don't have and account?"
+                    Margin="0,0,0,20"
+                    TextColor="{StaticResource LabelTextColor}"
+                    VerticalOptions="EndAndExpand"
+                    HorizontalOptions="Start"
+                    FontSize="Small"/>
+
+             <Label x:Name="UserAccount"
+                    Text="SIGN UP"
+                    FontSize="Medium"
+                    Margin="0,0,0,20"
+                    FontAttributes="Bold"
+                    TextColor="{StaticResource ButtonBackGround}"
+                    VerticalOptions="EndAndExpand"
+                    HorizontalOptions="Start">
+                 <Label.GestureRecognizers>
+                     <TapGestureRecognizer Tapped="UserCreateAccountTap"/>
+                 </Label.GestureRecognizers>
+                 
+                  </Label>
+        </StackLayout>
+    </Grid>
+   </ContentPage.Content>
+</ContentPage>

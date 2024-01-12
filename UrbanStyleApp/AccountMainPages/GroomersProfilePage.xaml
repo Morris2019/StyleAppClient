@@ -1,0 +1,263 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:image="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+    xmlns:pancakeview="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    xmlns:ffimage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:tabs="http://xamarin.com/schemas/2020/toolkit"
+    xmlns:viewModel="clr-namespace:UrbanStyleApp.ViewModels"
+    BackgroundColor="{StaticResource BackgroundColor}"
+    Shell.BackgroundColor="{StaticResource BackgroundColor}"
+    Shell.FlyoutBehavior="Disabled"
+    Shell.TabBarIsVisible="False"
+    x:Class="UrbanStyleApp.AccountMainPages.GroomersProfilePage">
+     <ContentPage.BindingContext>
+        <viewModel:GroomersProfilePageViewModel />
+    </ContentPage.BindingContext>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackLayout Grid.Row="0"
+                     Orientation="Vertical"
+                     Margin="0"
+                     Padding="0"
+                     Grid.RowSpan="2"
+                     HorizontalOptions="CenterAndExpand"
+                     VerticalOptions="CenterAndExpand">
+
+                  <ffimage:CachedImage  Source="mem2.png"
+                                        LoadingPlaceholder="LoaderImage"
+                                        ErrorPlaceholder="ErrorImage"
+                                        CacheDuration="50"
+                                        RetryCount="3"
+                                        RetryDelay="600"
+                                        BackgroundColor="{StaticResource BackgroundColor}"
+                                        HeightRequest="120"
+                                        WidthRequest="120"
+                                        Aspect="AspectFit"/>
+
+                <StackLayout Orientation="Horizontal" >
+
+                        <Label Text="Kwame"
+                            FontSize="Title"
+                            FontAttributes="Bold"
+                            HorizontalOptions="StartAndExpand"
+                            LineBreakMode="NoWrap"
+                            TextColor="{StaticResource LabelTextColor}"/>
+
+                        <Label Text="James"
+                            FontAttributes="Bold"
+                            FontSize="Title"
+                            HorizontalOptions="StartAndExpand"
+                            LineBreakMode="NoWrap"
+                            TextColor="{StaticResource LabelTextColor}"/>
+                </StackLayout>
+                     <Label  HorizontalTextAlignment="Center"
+                                  Grid.Column="3"
+                                  TextColor="#fdcc0d"
+                                  HorizontalOptions="Center">
+
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span x:Name="MyStar1" FontSize="34"   FontFamily="LocalIcons" >
+                                            <Span.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="Rating1"/>
+                                            </Span.GestureRecognizers>
+                                        </Span>
+                                        <Span x:Name="MyStar2" FontSize="34"   FontFamily="LocalIcons">
+                                            <Span.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="Rating2"/>
+                                            </Span.GestureRecognizers>
+                                        </Span>
+                                        <Span x:Name="MyStar3" FontSize="34"   FontFamily="LocalIcons">
+                                            <Span.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="Rating3"/>
+                                            </Span.GestureRecognizers>
+                                        </Span>
+                                        <Span x:Name="MyStar4" FontSize="34"   FontFamily="LocalIcons">
+                                               <Span.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="Rating4"/>
+                                            </Span.GestureRecognizers>
+                                        </Span>
+                                        <Span x:Name="MyStar5"  FontSize="34"  FontFamily="LocalIcons">
+                                        <Span.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="Rating5"/>
+                                        </Span.GestureRecognizers>
+                                        </Span>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                        </Label>
+
+        </StackLayout>
+            
+       
+        <StackLayout Grid.Row="2"
+                     Grid.RowSpan="4"
+                     Margin="20">
+        
+            <tabs:TabView>
+                <tabs:TabViewItem Text="Gallery"
+                                  TextColor="{StaticResource LabelTextColor}"
+                                   TextColorSelected="{StaticResource ButtonBackGround}"
+                                   FontSize="18"
+                                   FontSizeSelected="18"
+                                   FontFamilySelected="{StaticResource MontserratRegular}"
+                                   FontFamily="{StaticResource MontserratRegular}"
+                                   FontAttributes="Bold">
+                    <tabs:TabViewItem.Content>
+                        <CollectionView x:Name="GroomersProfile"
+                                ItemsSource="{Binding UrbanUsersModel}"
+                                Opacity="1"
+                                Margin="10"
+                                SelectionMode="Single">
+                           <CollectionView.ItemsLayout>
+                                 <GridItemsLayout Orientation="Vertical"
+                                            Span="2"
+                                            HorizontalItemSpacing="10"
+                                            VerticalItemSpacing="10"/>
+                                 </CollectionView.ItemsLayout>
+                                <CollectionView.ItemTemplate>
+                                     <DataTemplate>
+                                          <StackLayout>
+                                                <VisualStateManager.VisualStateGroups>
+                                                <VisualStateGroup Name="CommonStates">                        
+                                                    <VisualState Name="Selected">
+                                                        <VisualState.Setters>
+                                                            <Setter Property="BackgroundColor" Value="#f5f5f5" />
+                                                        </VisualState.Setters>
+                                                    </VisualState>
+                                                </VisualStateGroup>
+                                                 </VisualStateManager.VisualStateGroups>
+
+                                              <pancakeview:PancakeView
+                                                            CornerRadius="10"
+                                                            HeightRequest="100"
+                                                            Margin="0"
+                                                            Padding="2"
+                                                            Border="{pancakeview:BorderMarkup Color=#f7f8f9, Thickness='1'}"
+                                                            BackgroundColor="#f7f8f9">
+
+                                                      <ffimage:CachedImage  Source="mem2.png"
+                                                                            LoadingPlaceholder="LoaderImage"
+                                                                            ErrorPlaceholder="ErrorImage"
+                                                                            CacheDuration="50"
+                                                                            RetryCount="3"
+                                                                            RetryDelay="600"
+                                                                            BackgroundColor="{StaticResource BackgroundColor}"
+                                                                            HeightRequest="120"
+                                                                            WidthRequest="120"
+                                                                            Aspect="AspectFit"/>
+                                                            
+                                              </pancakeview:PancakeView>
+                                          </StackLayout>
+                                      </DataTemplate>
+                                 </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </tabs:TabViewItem.Content>
+                </tabs:TabViewItem>
+
+                 <tabs:TabViewItem Text="Skills"
+                                   TextColor="{StaticResource LabelTextColor}"
+                                   TextColorSelected="{StaticResource ButtonBackGround}"
+                                   FontSize="18"
+                                   FontSizeSelected="18"
+                                   FontFamilySelected="{StaticResource MontserratRegular}"
+                                   FontFamily="{StaticResource MontserratRegular}"
+                                   FontAttributes="Bold">
+                    <tabs:TabViewItem.Content>
+
+                       <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand">
+
+                           <StackLayout Orientation="Horizontal">
+                           <Label Text="Fading"
+                                  FontSize="Subtitle"
+                                  HorizontalOptions="Start"
+                                  FontAttributes="Bold"
+                                  Grid.ColumnSpan="3"
+                                  TextColor="{StaticResource LabelTextColor}"/>
+
+                               <Label Text="70%"
+                                  FontSize="Subtitle"
+                                  HorizontalOptions="EndAndExpand"
+                                  FontAttributes="Bold"
+                                  Grid.ColumnSpan="3"
+                                  TextColor="{StaticResource ButtonBackGround}"/>
+                               </StackLayout>
+
+                           <BoxView HeightRequest="40"
+                                    Margin="0,0,50,0"
+                                    BackgroundColor="{StaticResource ButtonBackGround}"
+                                    HorizontalOptions="FillAndExpand"/>
+
+                           <StackLayout Orientation="Horizontal"> 
+                               <Label Text="Dyeing"
+                                      FontSize="Subtitle"
+                                      HorizontalOptions="StartAndExpand"
+                                      FontAttributes="Bold"
+                                      Grid.ColumnSpan="3"
+                                      TextColor="{StaticResource LabelTextColor}"/>
+                               <Label Text="80%"
+                                      FontSize="Subtitle"
+                                      HorizontalOptions="EndAndExpand"
+                                      FontAttributes="Bold"
+                                      Grid.ColumnSpan="3"
+                                      TextColor="{StaticResource ButtonBackGround}"/>
+                            </StackLayout>
+                               <BoxView HeightRequest="40"
+                                        Margin="0,0,30,0"
+                                        BackgroundColor="{StaticResource ButtonBackGround}"
+                                        HorizontalOptions="FillAndExpand"/>
+
+
+                            <StackLayout Orientation="Horizontal">
+                              
+                                 <Label Text="Shaping"
+                                          FontSize="Subtitle"
+                                          HorizontalOptions="StartAndExpand"
+                                          FontAttributes="Bold"
+                                          Grid.ColumnSpan="3"
+                                          TextColor="{StaticResource LabelTextColor}"/>
+                                 <Label Text="90%"
+                                      FontSize="Subtitle"
+                                      HorizontalOptions="EndAndExpand"
+                                      FontAttributes="Bold"
+                                      Grid.ColumnSpan="3"
+                                      TextColor="{StaticResource ButtonBackGround}"/>
+                             </StackLayout>
+                               <BoxView HeightRequest="40"
+                                        Margin="0,0,10,0"
+                                        BackgroundColor="{StaticResource ButtonBackGround}"
+                                        HorizontalOptions="FillAndExpand"/>
+                                
+                          
+                       </StackLayout>
+                          
+                    </tabs:TabViewItem.Content>
+                </tabs:TabViewItem>
+             </tabs:TabView>
+        </StackLayout>
+            
+
+       <Button Text="Book Now"
+                Grid.Row="6"
+                TextTransform="None"
+                FontSize="Title"
+                Padding="30,0,30,0"
+                Margin="0,0,0,20"
+                VerticalOptions="EndAndExpand"
+                HorizontalOptions="CenterAndExpand"
+                BackgroundColor="{StaticResource ButtonBackGround}"
+                TextColor="{StaticResource ButtontTextColor}"
+                FontAttributes="Bold"
+                Clicked="GroomerBooking"/>
+    </Grid>
+</ContentPage>

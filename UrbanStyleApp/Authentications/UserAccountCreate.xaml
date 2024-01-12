@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Shell.FlyoutBehavior="Disabled"
+    Shell.BackgroundColor="{StaticResource BackgroundColor}"
+    Shell.TabBarIsVisible="False"
+    BackgroundColor="{StaticResource BackgroundColor}"
+    xmlns:image="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+    x:Class="UrbanStyleApp.Authentications.UserAccountCreate">
+
+      <Grid VerticalOptions="FillAndExpand" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+             
+        <StackLayout Grid.Row="0"
+                     Orientation="Vertical"
+                     Padding="20"
+                     BackgroundColor="{StaticResource BackgroundColor}">
+
+            <Label Text="Sign Up"
+                    VerticalOptions="Start"
+                    HorizontalOptions="StartAndExpand"
+                    TextColor="{StaticResource LabelTextColor}"
+                    FontSize="Title"
+                    FontAttributes="Bold"/>
+
+            <Label Text="Enter your details to create an account"
+                    VerticalOptions="Start"
+                    HorizontalOptions="StartAndExpand"
+                    TextType="Text"
+                    TextColor="{StaticResource LabelTextColor}"
+                    FontSize="Small"  />
+
+        </StackLayout>
+
+        <StackLayout Orientation="Vertical" Grid.Row="1" Padding="20">
+
+              <Entry x:Name="UserName"
+                    Placeholder="Username"
+                    Keyboard="Text"
+                    IsTextPredictionEnabled="True"
+                    PlaceholderColor="{StaticResource EntryPlaceTextColor}"
+                    ClearButtonVisibility="WhileEditing"
+                    TextColor="{StaticResource EntryTextColor}"/>
+          
+             <Entry x:Name="UrbanTellNumber"
+                    Placeholder="Email"
+                    Keyboard="Email"
+                    IsTextPredictionEnabled="False"
+                    PlaceholderColor="{StaticResource EntryPlaceTextColor}"
+                    ClearButtonVisibility="WhileEditing"
+                    TextColor="{StaticResource EntryTextColor}" />
+
+            <Entry x:Name="UrbanPassword"
+                    Placeholder="Password"
+                    Keyboard="Text"
+                    IsTextPredictionEnabled="False"
+                    PlaceholderColor="{StaticResource EntryPlaceTextColor}"
+                    ClearButtonVisibility="WhileEditing"
+                    TextColor="{StaticResource EntryTextColor}"
+                    IsPassword="True" />
+
+           <Label LineBreakMode="NoWrap"
+                  MaxLines="2"
+                  Padding="10"
+                  HorizontalOptions="CenterAndExpand"
+                  VerticalOptions="StartAndExpand">
+               <Label.FormattedText>
+                   <FormattedString>
+            <Span Text="By continuing you agree to our "
+                    TextColor="{StaticResource LabelTextColor}"
+                    FontSize="Small"
+                    FontAttributes="None"/>
+
+            <Span Text="Terms of Service"
+                    TextTransform="None"
+                    TextColor="{StaticResource ButtonBackGround}"
+                    FontSize="Small"  />
+
+                <Span Text=" and "
+                    TextColor="{StaticResource LabelTextColor}"
+                    FontSize="Small"  />
+
+                <Span Text="Privacy Policy"
+                    TextColor="{StaticResource ButtonBackGround}"
+                    FontSize="Small"  />
+
+                       </FormattedString>
+             </Label.FormattedText>
+        </Label>
+
+            <Button Text="Sign up "
+                          TextTransform="Default"
+                          FontSize="20"
+                          Margin="0,20,20,0"
+                          Padding="70 ,0 ,70 ,0 "
+                          VerticalOptions="EndAndExpand"
+                          HorizontalOptions="CenterAndExpand"
+                          TextColor="{StaticResource ButtontTextColor}"
+                          BackgroundColor="{StaticResource ButtonBackGround}"
+                          FontAttributes="Bold"/>
+
+            </StackLayout>
+ 
+            <StackLayout Grid.Row="2"
+                          Orientation="Horizontal"
+                          HorizontalOptions="CenterAndExpand">
+
+                 <Label 
+                    Text=" Don't have and account?"
+                    Margin="0,0,0,20"
+                    TextColor="{StaticResource LabelTextColor}"
+                    VerticalOptions="EndAndExpand"
+                    HorizontalOptions="Start"
+                    FontSize="Small"/>
+
+             <Label x:Name="UserAccount"
+                    Text="SIGN IN"
+                    FontSize="Medium"
+                    Margin="0,0,0,20"
+                    FontAttributes="Bold"
+                    TextColor="{StaticResource ButtonBackGround}"
+                    VerticalOptions="EndAndExpand"
+                    HorizontalOptions="Start">
+                 <Label.GestureRecognizers>
+                     <TapGestureRecognizer Tapped="SignInPage"/>
+                 </Label.GestureRecognizers>
+                 
+                  </Label>
+        </StackLayout>
+    </Grid>
+</ContentPage>

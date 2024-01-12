@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewMModel="clr-namespace:UrbanStyleApp.ViewModels"
+    xmlns:ffimage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:pancakeview="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    Shell.FlyoutBehavior="Disabled"
+    Shell.BackgroundColor="{StaticResource BackgroundColor}"
+    Shell.NavBarIsVisible="False"
+    Shell.TabBarIsVisible="False"
+    BackgroundColor="{StaticResource BackgroundColor}"
+    x:Class="UrbanStyleApp.Authentications.SplashFirstPage">
+
+    <ContentPage.BindingContext>
+        <viewMModel:SplashFirstPageViewModel />
+    </ContentPage.BindingContext>
+
+       <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+            <CarouselView
+                x:Name="Carousel"
+                Grid.Row="0"
+                Grid.RowSpan="9"
+                Margin="10"
+                IndicatorView="CarouselIndicator"
+                VerticalOptions="CenterAndExpand"
+                ItemsSource="{Binding serviceItemms}">
+               
+                
+                <CarouselView.ItemsLayout>
+                    <LinearItemsLayout 
+                        Orientation="Horizontal" 
+                        SnapPointsAlignment="Center" 
+                        SnapPointsType="MandatorySingle" />
+                </CarouselView.ItemsLayout>
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                       <Grid>
+                           <Grid.RowDefinitions>
+                               <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                           </Grid.RowDefinitions>
+
+                                <pancakeview:PancakeView 
+                                    CornerRadius="10"
+                                    Grid.Row="0"
+                                    Margin="10"
+                                    BackgroundGradientStartPoint="0,1"
+                                    BackgroundGradientEndPoint="0,0"
+                                    Grid.RowSpan="8"
+                                    BackgroundColor="{StaticResource BackgroundColor}"/>
+
+                        <ffimage:CachedImage Source="{Binding Image}"
+                                                Aspect="AspectFit"
+                                                Grid.Row="2"
+                                                Grid.RowSpan="4"
+                                                LoadingPlaceholder="LoaderImage"
+                                                ErrorPlaceholder="ErrorImage"
+                                                CacheDuration="50"
+                                                RetryCount="3"
+                                                RetryDelay="600"
+                                                BackgroundColor="{StaticResource BackgroundColor}"/>
+
+                                    <Label Grid.Row="7"
+                                            Text="{Binding Title}"
+                                            TextColor="{StaticResource LabelTextColor}"
+                                            FontAttributes="Italic"
+                                            FontSize="Subtitle"
+                                            HorizontalTextAlignment="Center"
+                                            FontFamily="{StaticResource MontserratBold}"
+                                            HorizontalOptions="CenterAndExpand"
+                                            VerticalOptions="StartAndExpand" />
+
+                      </Grid>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+
+        <IndicatorView x:Name="CarouselIndicator"
+                       IndicatorSize="9"
+                       Margin="10"
+                       Grid.Row="7"
+                       BackgroundColor="AliceBlue"
+                       SelectedIndicatorColor="Gray"
+                       IndicatorColor="LightGray"
+                       HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="CenterAndExpand"/>
+
+                 <Button 
+                        TextColor="{StaticResource ButtontTextColor}"
+                        Grid.Row="9"
+                        Margin="10"
+                        Padding="40,0,40,0"
+                        CornerRadius="5"
+                        FontFamily="{StaticResource MontserratBold}"
+                        HorizontalOptions="EndAndExpand"
+                        Text="Next"
+                        FontAttributes="Bold"
+                        FontSize="Subtitle"
+                        BackgroundColor="{StaticResource ButtonBackGround}"
+                        Clicked="AccountPage"/>
+             
+   </Grid>
+
+</ContentPage>

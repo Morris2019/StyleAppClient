@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Shell.FlyoutBehavior="Disabled"
+    Shell.NavBarIsVisible="False"
+    Shell.TabBarIsVisible="False"
+    BackgroundColor="{StaticResource BackgroundColor}"
+    x:Class="UrbanStyleApp.Authentications.UrbanAccountPage">
+
+    <StackLayout Orientation="Vertical">
+
+     <StackLayout Orientation="Vertical"
+                  Grid.Row="0"
+                  VerticalOptions="CenterAndExpand"
+                  Padding="5">
+
+         <Image Source="UrbanLogo.jpeg"
+                HeightRequest="200"
+                Aspect="AspectFit" />
+
+     </StackLayout>
+
+     <StackLayout Orientation="Vertical"
+                  HorizontalOptions="CenterAndExpand"
+                  VerticalOptions="StartAndExpand">
+
+            <Button Text="Login"
+                          TextTransform="None"
+                          FontSize="20"
+                          Padding="70 ,0 ,70 ,0 "
+                          VerticalOptions="StartAndExpand"
+                          HorizontalOptions="CenterAndExpand"
+                          TextColor="{StaticResource ButtontTextColor}"
+                          BackgroundColor="{StaticResource ButtonBackGround}"
+                          Clicked="UrbanLogin"
+                          FontAttributes="Bold"/>
+
+            <Button Text="Sign up "
+                          TextTransform="None"
+                          FontSize="20"
+                          Margin="0,20,0,0"
+                          Padding="60 ,0 ,60 ,0 "
+                          VerticalOptions="StartAndExpand"
+                          HorizontalOptions="CenterAndExpand"
+                          TextColor="{StaticResource ButtontTextColor}"
+                          BackgroundColor="{StaticResource ButtonBackGround}"
+                          Clicked="UrbanSignup"
+                          FontAttributes="Bold"/>
+     </StackLayout>
+        </StackLayout>
+</ContentPage>

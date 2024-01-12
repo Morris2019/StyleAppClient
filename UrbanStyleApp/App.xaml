@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UrbanStyleApp.App">
+
+    <Application.Resources>
+         <ResourceDictionary >
+            <Color x:Key="WhiteColor">#FFFFFF</Color>
+            <Color x:Key="BlackColor">#000000</Color>
+            
+            <!-- FONTS -->
+            <OnPlatform x:Key="MontserratRegular"
+                        x:TypeArguments="x:String"
+                        Android="Montserrat-Regular.ttf#Montserrat"
+                        iOS="Montserrat-Regular" />
+
+
+            <OnPlatform x:Key="MontserratBold"
+                        x:TypeArguments="x:String"
+                        Android="Montserrat-Bold.ttf#Montserrat"
+                        iOS="Montserrat-Bold" />
+             <Color x:Key="ThemeBlueColor">#494AB6</Color>
+            <Color x:Key="BackgroundColor">#FFFFFF</Color>
+             <Color x:Key="ButtonBackGround">#494AB6</Color>
+             <Color x:Key="ButtontTextColor">#FFFFFF</Color>
+             <Color x:Key="LabelTextColor">#000000</Color>
+             <Color x:Key="FrameBackGroundColor">#FFFFFF</Color>
+             <Color x:Key="EntryTextColor">#000000</Color>
+             <Color x:Key="EntryPlaceTextColor">#000000</Color>
+             <Color x:Key="NavItemSelected">#494AB6</Color>
+             <Color x:Key="NavItemsColor">#000000</Color>
+             <Color x:Key="NavBackgroundColor">#FOEFFF</Color>
+             <Color x:Key="BuyButtonbackground">#FOEFFF</Color>
+             <Color x:Key="BuyButtonTextColor">#494AB6</Color>
+              <Color x:Key="FramBackground">#f7f8f9</Color>
+           
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

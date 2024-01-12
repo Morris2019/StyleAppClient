@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewmodels="clr-namespace:UrbanStyleApp.ViewModels"
+    xmlns:ffimage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    Shell.FlyoutBehavior="Disabled"
+    Title="UrbanStyle Store"
+    Shell.BackgroundColor="{StaticResource BackgroundColor}"
+    Shell.TitleColor="{StaticResource LabelTextColor}"
+    Visual="Material"
+    x:Class="UrbanStyleApp.AccountMainPages.UrbanStoreBody">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="round_shopping_cart_black_48.png"/>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.BindingContext>
+        <viewmodels:UrbanStoreBodyViewModel />
+    </ContentPage.BindingContext>
+
+    <CollectionView x:Name="UranActivity"
+                     ItemsSource="{Binding serviceItemms}"
+                     Opacity="1"
+                     Margin="10"
+                     SelectionChanged="storeItemSelected"
+                     SelectionMode="Single">
+             <CollectionView.ItemsLayout>
+       <GridItemsLayout Orientation="Vertical"
+                        Span="2"
+                        HorizontalItemSpacing="10"
+                        VerticalItemSpacing="10"/>
+    </CollectionView.ItemsLayout>
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                                            <StackLayout>
+                                 <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup Name="CommonStates">                        
+                                        <VisualState Name="Selected">
+                                            <VisualState.Setters>
+                                                <Setter Property="BackgroundColor" Value="{StaticResource BuyButtonTextColor}" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+
+                <Frame  HasShadow="True"
+                        BorderColor="#ECECEC"
+                        CornerRadius="10"
+                        Padding="2"
+                        MinimumHeightRequest="200"
+                        HeightRequest="240"
+                        BackgroundColor="{StaticResource FrameBackGroundColor}">
+                    
+                         <StackLayout Orientation="Vertical"
+                                      HorizontalOptions="Fill"
+                                      VerticalOptions="Fill">
+
+                           <ffimage:CachedImage Source="{Binding Image}"
+                                                Aspect="AspectFit"
+                                                HeightRequest="160"
+                                                Grid.RowSpan="5"
+                                                LoadingPlaceholder="LoaderImage"
+                                                ErrorPlaceholder="ErrorImage"
+                                                CacheDuration="50"
+                                                RetryCount="3"
+                                                RetryDelay="600"
+                                                BackgroundColor="{StaticResource FramBackground}"/>
+                            
+                               <BoxView HeightRequest="2"
+                                        HorizontalOptions="Fill"
+                                        Color="#ECECEC"/>
+
+                        <Label Text="{Binding Title}"
+                                FontSize="Subtitle"
+                                MaxLines="2"
+                                Margin="3" 
+                                FontFamily="{StaticResource MontserratRegular}"
+                                HorizontalTextAlignment="Center"
+                                HorizontalOptions="CenterAndExpand"
+                                LineBreakMode="NoWrap"
+                                TextColor="{StaticResource LabelTextColor}"/>
+
+                        <Label Text="{Binding Price, StringFormat='{0:C}'}"
+                                FontSize="Subtitle"
+                                MaxLines="2"
+                                HorizontalOptions="CenterAndExpand"
+                                Margin="3"
+                                LineBreakMode="NoWrap"
+                                FontAttributes="Bold"
+                                FontFamily="{StaticResource MontserratBold}"
+                                TextColor="{StaticResource LabelTextColor}"/>
+
+                    </StackLayout>
+                </Frame>
+                    </StackLayout>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+</ContentPage>

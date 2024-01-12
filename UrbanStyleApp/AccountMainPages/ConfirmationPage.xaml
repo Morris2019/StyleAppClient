@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    BackgroundColor="{StaticResource BackgroundColor}"
+    Shell.BackgroundColor="{StaticResource BackgroundColor}"
+    xmlns:ffimage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    Shell.FlyoutBehavior="Disabled"
+    Shell.TabBarIsVisible="False"
+    Visual="Material"
+    x:Class="UrbanStyleApp.AccountMainPages.ConfirmationPage">
+
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="CenterAndExpand"
+                     VerticalOptions="CenterAndExpand"
+                     Orientation="Vertical">
+
+              <ffimage:CachedImage Source="orderconfirmedillustration.png"
+                                   Aspect="AspectFill"
+                                   LoadingPlaceholder="LoaderImage"
+                                    ErrorPlaceholder="ErrorImage"
+                                    CacheDuration="50"
+                                    RetryCount="3"
+                                    RetryDelay="600"
+                                    BackgroundColor="{StaticResource BackgroundColor}"
+                                    HeightRequest="120"
+                                    WidthRequest="120"
+                                   HorizontalOptions="CenterAndExpand"
+                                   VerticalOptions="CenterAndExpand"/>
+
+           <Label LineBreakMode="NoWrap"
+                  MaxLines="2"
+                  Padding="10"
+                  FontFamily="{StaticResource MontserratRegular}"
+                  HorizontalOptions="CenterAndExpand"
+                  VerticalOptions="StartAndExpand">
+               <Label.FormattedText>
+                   <FormattedString>
+            <Span Text="You have successfully booked for "
+                    TextColor="{StaticResource LabelTextColor}"
+                    FontSize="Small"
+                    FontAttributes="None"/>
+
+            <Span Text="Kwame"
+                    TextTransform="None"
+                    TextColor="{StaticResource LabelTextColor}"
+                    FontSize="Small"  />
+                       </FormattedString>
+             </Label.FormattedText>
+        </Label>
+             <Label LineBreakMode="NoWrap"
+                  HorizontalOptions="CenterAndExpand"
+                  VerticalOptions="StartAndExpand">
+               <Label.FormattedText>
+                   <FormattedString>
+            <Span Text="Barbering Service at "
+                    TextColor="{StaticResource LabelTextColor}"
+                    FontSize="Small"
+                    FontAttributes="None"/>
+
+            <Span Text="1 pm"
+                    TextTransform="None"
+                    TextColor="{StaticResource LabelTextColor}"
+                    FontSize="Small"  />
+
+             <Span Text=" on "
+                    TextTransform="None"
+                    TextColor="{StaticResource LabelTextColor}"
+                    FontSize="Small"  />
+
+                  <Span Text="Monday"
+                    TextTransform="None"
+                    TextColor="{StaticResource LabelTextColor}"
+                    FontSize="Small"  />
+                       </FormattedString>
+             </Label.FormattedText>
+
+        </Label>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

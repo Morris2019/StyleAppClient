@@ -1,0 +1,212 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    BackgroundColor="{StaticResource BackgroundColor}"
+    Shell.BackgroundColor="{StaticResource BackgroundColor}"
+    Visual="Material"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    ios:Page.UseSafeArea="true"
+    xmlns:localfont="clr-namespace:UrbanStyleApp.EmbeddedFont"
+    xmlns:converter="clr-namespace:UrbanStyleApp.Converters"
+    Shell.FlyoutBehavior="Disabled"
+    Shell.TabBarIsVisible="False"
+    xmlns:renderedViews="clr-namespace:Sharpnado.HorizontalListView.RenderedViews;assembly=Sharpnado.HorizontalListView"
+    x:Class="UrbanStyleApp.AccountMainPages.ServiceBookingPage">
+
+   <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:ColorConverter x:Key="IsSelectedConverter"/>
+             <converter:VisibilityConverter x:Key="VisibilityConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid RowSpacing="5"
+                  Margin="0"
+                  RowDefinitions="Auto,Auto,Auto">
+
+               <Grid Margin="20,0,20,20"
+                     RowDefinitions="Auto,Auto,Auto"
+                     ColumnDefinitions="3*,4*,3*">
+
+
+                    <Button HorizontalOptions="EndAndExpand"
+                            Grid.Row="3"
+                            FontFamily="LocalIcons"
+                            HeightRequest="20"
+                            Command="{Binding PreviousMonthCommand}"
+                            Visual="Material"
+                            Grid.Column="0"
+                            ImageSource="baseline_arrow_circle_left_white_18.png"
+                            TextColor="{StaticResource ButtonBackGround}"
+                            BackgroundColor="{StaticResource ButtonBackGround}">
+
+                         <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal">
+                                        <VisualState.Setters>
+                                            <Setter Property="Scale"
+                                                Value="1" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+
+                                    <VisualState x:Name="Pressed">
+                                        <VisualState.Setters>
+                                            <Setter Property="Scale"
+                                                Value="0.8" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                        </Button>
+                    <Label Grid.Row="3"
+                           FontAttributes="Bold"
+                           TextColor="{StaticResource ButtonBackGround}"
+                           Grid.Column="1"
+                           FontSize="Subtitle"
+                           VerticalOptions="CenterAndExpand"
+                           HorizontalOptions="CenterAndExpand"
+                           Text="{Binding HeaderDateTime,StringFormat='{0: MMM, yyyy}',Mode=TwoWay}"/>
+
+                <Button HorizontalOptions="StartAndExpand"
+                        Grid.Row="3"
+                        FontFamily="LocalIcons"
+                        Command="{Binding NextMonthCommand}"
+                        Visual="Material"
+                        Grid.Column="2"
+                        Padding="0"
+                        BackgroundColor="{StaticResource ButtonBackGround}"
+                        ImageSource="baseline_arrow_circle_right_white_18.png"
+                        TextColor="{StaticResource ThemeBlueColor}">
+
+                     <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal">
+                                        <VisualState.Setters>
+                                            <Setter Property="Scale"
+                                                Value="1" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+
+                                    <VisualState x:Name="Pressed">
+                                        <VisualState.Setters>
+                                            <Setter Property="Scale"
+                                                Value="0.8" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                    </Button>
+                </Grid>
+            <StackLayout  Grid.Row="1"  Margin="0" VerticalOptions="CenterAndExpand">
+                     <renderedViews:HorizontalListView 
+                                  ItemSpacing="8" FlowDirection="LeftToRight"
+                                  TapCommand="{Binding SelectCommand}" 
+                                  ItemHeight="80"
+                                  CurrentIndex="{Binding GetSelectedIndex}"
+                                  ItemWidth="80" Grid.Row="1" 
+                                  ItemsSource="{Binding TimeContainer,Mode=TwoWay}"
+                                  SnapStyle="Center">
+                 <renderedViews:HorizontalListView.ItemTemplate>
+                    <DataTemplate>
+                    <ViewCell>
+                   <StackLayout Orientation="Vertical">
+                                            <Label TextColor="{Binding Selected,Converter={StaticResource IsSelectedConverter}}"
+                                                   HorizontalOptions="CenterAndExpand"
+                                                   Text="{Binding Date}"/>
+
+                                            <Label TextColor="{Binding Selected,Converter={StaticResource IsSelectedConverter}}"
+                                                   HorizontalOptions="CenterAndExpand"
+                                                   Text="{Binding Day}"/>
+
+                                            <Label TextColor="{StaticResource ButtonBackGround}"
+                                                   HorizontalOptions="CenterAndExpand"
+                                                   FontAttributes="Bold" FontSize="16"
+                                                   Text="____"
+                                                   IsVisible="{Binding Selected,Converter={StaticResource VisibilityConverter}}"/>
+                 </StackLayout>
+                 </ViewCell>
+                    </DataTemplate>
+                    </renderedViews:HorizontalListView.ItemTemplate>
+               </renderedViews:HorizontalListView>
+           </StackLayout>
+
+            <Grid  Grid.Row="2"
+                   Margin="10"
+                   RowDefinitions="Auto,240">  
+                <Label HorizontalTextAlignment="Start"
+                       TextColor="{StaticResource LabelTextColor}"
+                       FontAttributes="Bold"
+                       Text=" Select Time"/>
+
+             <CollectionView Margin="0,10,0,0"
+                             Grid.Row="1"
+                             ItemsSource="{Binding ScheduleTimeModelContainer}">
+
+                  <CollectionView.ItemsLayout>
+               <GridItemsLayout Orientation="Vertical"
+                                HorizontalItemSpacing="10"
+                                VerticalItemSpacing="10"
+                                Span="3" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame  HasShadow="False"
+                            BorderColor="{StaticResource ButtonBackGround}"
+                            CornerRadius="2"
+                            Padding="10">
+
+                       <Label FontSize="14"
+                              FontAttributes="Bold"
+                              VerticalOptions="FillAndExpand"
+                              HorizontalOptions="FillAndExpand"
+                              Text="{Binding DateTimeItems, StringFormat='{}{0:hh\\:mm}'}"
+                              TextColor="{StaticResource LabelTextColor}">
+                           <Label.GestureRecognizers>
+                               <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"
+                                                     CommandParameter="{Binding .}"/>
+                           </Label.GestureRecognizers>
+                       </Label>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+            </CollectionView>
+                    </Grid>
+
+           <!-- <Grid  Margin="10,5"
+                   RowSpacing="5"
+                   RowDefinitions="Auto,Auto" Grid.Row="3">
+                <Label FontAttributes="Bold"  TextColor="Black" Padding="10" Text="Comments"/>
+                <Frame Grid.Row="1" HasShadow="False" BorderColor="{StaticResource ThemeBlueColor}" Padding="5">
+                    <Editor HeightRequest="110"/>
+
+                </Frame>
+            </Grid>-->
+            <Grid RowDefinitions="Auto"
+                  Grid.Row="4">
+                  <Button Margin="20,10"
+                          TextColor="{StaticResource ButtontTextColor}"
+                          Text="Confirm"
+                          Visual="Default"
+                          Clicked="BookService">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="1,0">
+                            <GradientStop Color="{StaticResource Key=ButtonBackGround}"
+                          Offset="0.4" />
+
+                            <GradientStop Color="{StaticResource Key=ButtonBackGround}"
+                          Offset="1.0" />
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+
+            </Grid>
+        </Grid>
+        </ScrollView>
+        
+    </ContentPage.Content>
+</ContentPage>

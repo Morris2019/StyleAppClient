@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewmodels="clr-namespace:UrbanStyleApp.ViewModels"
+    xmlns:ffimage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
+    Shell.FlyoutBehavior="Disabled"
+    Shell.BackgroundColor="{StaticResource BackgroundColor}"
+    Shell.TabBarIsVisible="False"
+    BackgroundColor="{StaticResource BackgroundColor}"
+    x:DataType="viewmodels:ItemsDetailsPageViewModel"
+    x:Class="UrbanStyleApp.AccountMainPages.ItemsDetailsPage">
+
+    <ContentPage.BindingContext>
+        <viewmodels:ItemsDetailsPageViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <Grid VerticalOptions="FillAndExpand" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackLayout Orientation="Vertical">
+        <StackLayout Orientation="Vertical"
+                     Grid.Row="0"
+                     Padding="10">
+            
+                 <ffimage:CachedImage Source="baseline_favorite_border_black_48.png"
+                                    Aspect="AspectFit"
+                                    Grid.Row="0"
+                                    Margin="10"
+                                    HorizontalOptions="EndAndExpand"
+                                    HeightRequest="40"
+                                    Grid.RowSpan="5"
+                                    LoadingPlaceholder="LoaderImage"
+                                    ErrorPlaceholder="ErrorImage"
+                                    CacheDuration="50"
+                                    RetryCount="3"
+                                    RetryDelay="600"
+                                    BackgroundColor="{StaticResource BackgroundColor}"/>
+
+                <ffimage:CachedImage Source="favpnggel.png"
+                                     Grid.Row="0"
+                                     Grid.RowSpan="3"
+                                    Aspect="AspectFit"
+                                    LoadingPlaceholder="LoaderImage"
+                                    ErrorPlaceholder="ErrorImage"
+                                    CacheDuration="50"
+                                    RetryCount="3"
+                                     HeightRequest="200"
+                                    RetryDelay="600"/>
+      
+            <Label Text="The Hair Story hair milk"
+                    VerticalOptions="Start"
+                    HorizontalOptions="StartAndExpand"
+                    TextColor="{StaticResource LabelTextColor}"
+                    FontSize="Title"
+                    FontAttributes="Bold"/>
+
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="StartAndExpand">
+                <Button Text="-"
+                    VerticalOptions="Start"
+                    HorizontalOptions="Start"
+                    BackgroundColor="{StaticResource BackgroundColor}"
+                    TextColor="{StaticResource ButtonBackGround}"
+                    FontSize="Large"
+                    Padding="0"
+                    Command="{Binding DecreaseIttem}"
+                    FontAttributes="Bold"/>
+
+                 <Label Text="{Binding CountItems}"
+                         x:Name="CountText"
+                          TextTransform="None"
+                          FontSize="Large"
+                          Padding="10 "
+                          WidthRequest="60"
+                          VerticalOptions="Start"
+                          HorizontalOptions="CenterAndExpand"
+                          TextColor="{StaticResource ButtonBackGround}"
+                          BackgroundColor="{StaticResource ButtontTextColor}"
+                          FontAttributes="Bold"/>
+
+                <Button Text="+"
+                    VerticalOptions="Start"
+                    HorizontalOptions="Start"
+                    TextColor="{StaticResource ButtonBackGround}"
+                    BackgroundColor="{StaticResource BackgroundColor}"
+                    FontSize="Large"
+                    Padding="0"
+                    Command="{Binding IcreaseItem}"
+                    FontAttributes="Bold"/>
+
+                <StackLayout HorizontalOptions="EndAndExpand">
+
+          <Label LineBreakMode="NoWrap"
+                  MaxLines="2"
+                  Padding="10"
+                  HorizontalOptions="CenterAndExpand"
+                  VerticalOptions="StartAndExpand">
+
+               <Label.FormattedText>
+                   <FormattedString>
+                    <Span Text="GHS "
+                            TextColor="{StaticResource LabelTextColor}"
+                            FontSize="Subtitle"
+                            FontAttributes="Bold"/>
+
+                    <Span Text="400.00"
+                            TextTransform="None"
+                            TextColor="{StaticResource ButtonBackGround}"
+                            FontSize="Subtitle"
+                            FontAttributes="Bold" />
+
+
+                       </FormattedString>
+             </Label.FormattedText>
+        </Label>
+
+                    </StackLayout>
+
+        </StackLayout>
+        <StackLayout Orientation="Vertical" Grid.Row="1">
+
+             <Label Text="Product Details"
+                    VerticalOptions="Start"
+                    HorizontalOptions="Start"
+                    TextColor="{StaticResource LabelTextColor}"
+                    FontSize="Subtitle"
+                    FontAttributes="Bold"/>
+
+             <Label LineBreakMode="NoWrap"
+                  MaxLines="2"
+                  Padding="10"
+                  HorizontalOptions="StartAndExpand"
+                  VerticalOptions="StartAndExpand">
+
+               <Label.FormattedText>
+                   <FormattedString>
+                    <Span Text="We're still working through the idea of how to let users express a stack with a uri and if we want to. The syntax you have there was something we had discussed internally but we weren't sure if it would be confusing or not to stack the Urls like that. The other thing to note is that we are also working on the best way for a user to resume an app and the best way to make it so the developer has to do as little work as possible for this. For example not requiring the user to to remember. We would prefer to just he app and then provide hooks to the developer where they can perform different actions when an app is resuming. "
+                            TextColor="{StaticResource LabelTextColor}"
+                            FontSize="Small"
+                            FontAttributes="None"/>
+
+                  
+                       </FormattedString>
+             </Label.FormattedText>
+        </Label>
+
+              <Label Text="Review"
+                    VerticalOptions="Start"
+                    HorizontalOptions="Start"
+                    TextColor="{StaticResource LabelTextColor}"
+                    FontSize="Subtitle"
+                    FontAttributes="Bold"/>
+
+            </StackLayout>
+          </StackLayout>
+            </StackLayout>
+
+            <StackLayout HorizontalOptions="EndAndExpand"
+                         VerticalOptions="EndAndExpand"
+                         Orientation="Horizontal"
+                         Grid.Row="2"
+                         Padding="15">
+
+            <Button Text="Add to cart"
+                          TextTransform="None"
+                          FontSize="Subtitle"
+                          Padding="40, 0,40,0 "
+                          VerticalOptions="EndAndExpand"
+                          TextColor="{StaticResource ButtontTextColor}"
+                          BackgroundColor="{StaticResource ButtonBackGround}"
+                          FontAttributes="Bold"
+                          Clicked="AdditemCart"/>
+
+                <Button Text="Buy Now "
+                          TextTransform="None"
+                          FontSize="Subtitle"
+                          VerticalOptions="EndAndExpand"
+                          HorizontalOptions="EndAndExpand"
+                          Padding="40, 0,40,0  "
+                          TextColor="{StaticResource ButtonBackGround}"
+                          BackgroundColor="#C9BBFE"
+                          FontAttributes="Bold"
+                         Clicked="UrbanPayment"/>
+                </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
